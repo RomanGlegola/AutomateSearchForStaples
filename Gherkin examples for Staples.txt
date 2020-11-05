@@ -1,0 +1,20 @@
+Feature: Google search
+#As a user I want to use google search engine in order to find new content
+
+Background: 
+Given a web browser landed on Google main page
+
+Scenario: Find "Staples" phrase in Google search
+When search field is populated by "Staples" string
+And 'Google search' button is pressed
+Then results for "Staples" keyword related are shown
+But no other keyword related content was taken into account
+
+Scenario: Find available "Staples" phrase in Google search shopping
+When scenario "Find "Staples" phrase in Google search" is executed
+[When search field is populated by "Staples" string
+And 'Google search' button is pressed
+Then results for "Staples" keyword related are shown]
+And 'Shopping' button on top navigation panel is pressed
+Then results for "Staples" keyword related products are shown
+
